@@ -1,0 +1,10 @@
+{
+  "densidad_ramas": 1.5,
+  "entropia_historia": 0.0,
+  "path_critico": [
+    "627c9827ddfe7d145faa28f55e58707c10d5df63",
+    "cf071f2359b98bec3c10c0b3efa8b4a3b8175a39",
+    "5f19e89683bce9843474e83d93c70ff57a351d6c"
+  ],
+  "total_commits": 3
+}
