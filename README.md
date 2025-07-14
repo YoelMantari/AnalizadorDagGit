@@ -61,7 +61,27 @@ entonces basicament el sistema usa subprocess para ejecutar comandos git directa
 
 ## Pregunta B: Micro-suite Python con DI, Facade y Composition
 
+### report_suite.py
 
+Se implementa micro-suite con 4 componentes principales usando patrones de disenio
+
+Em `commit_stats_service` recibe json_reader en constructor para dependency injection y extrae metricas basicas del json del grafo
+
+`release_notes_service` maneja notas entre tags de forma
+
+`changelog_writer` usa composition reutilizando el release_notes_service y formatea salidas en markdown
+
+En `reporting_suite` se implementa facade exponiendo generate_report que coordina todos los servicios y genera archivo final
+
+`read_json_file` funcion helper ayuda a leer archivos json
+
+### test_report_suite.py
+
+`test_stats_service` prueba unitaria con mock del json_reader que verifica extraccion de metricas
+
+`test_facade_completo` prueba de integracion que crea json temporal ejecuta facade completo y verifica generacion de reporte
+
+Entonces los **Patrones implementados** dependency injection en constructores facade para coordinar servicios composition para reutilizar logica entre componentes
 
 
 
