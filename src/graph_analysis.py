@@ -4,26 +4,23 @@ import math
 
 class analizador_dag:
     def __init__(self):
-        # diccionario para guardar commits
-        self.commits = {}
-        # diccionario para guardar padres de cada commit
-        self.padres = {}
+        self.commits = {} # guardamos los commit
+        self.padres = {} # guardar los commit padre
         
     def obtener_commits_git(self, repo_path):
-        # obtiene commits usando git rev-list
+        # se obtiene commits usando git rev-list
         try:
             cmd = ["git", "rev-list", "--all", "--parents"]
             resultado = subprocess.check_output(cmd, cwd=repo_path, text=True)
             lineas = resultado.strip().split('\n')
             
-            # procesa cada linea de salida
             for linea in lineas:
                 if linea:
                     partes = linea.split()
                     commit = partes[0]
                     padres_commit = partes[1:] if len(partes) > 1 else []
                     
-                    # guarda commit y sus padres
+                    # guardamos cada commit y sus padres
                     self.commits[commit] = True
                     self.padres[commit] = padres_commit
                     
@@ -32,7 +29,6 @@ class analizador_dag:
         return True
             
     def calcular_densidad_ramas(self):
-        # densidad simple = numero nodos / niveles maximos
         if not self.commits:
             return 0
         
