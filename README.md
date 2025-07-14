@@ -7,9 +7,15 @@ Sistema para analizar repositorios Git como grafos aciclicos dirigidos y generar
 analiza la estructura de commits y merges en repositorios git aplicando algoritmos de analisis de grafos para obtener metricas como densidad de ramas paths criticos de entrega entropia de historia del proyecto
 
 ## uso
+Permisos
 
 ```bash
-python src/main.py --repo /path/to/repo
+cd scripts 
+chmod +x male_report.sh
+```
+
+```bash
+./scripts make_report.sh
 ```
 ## Pregunta A: Algoritmo sobre el grafo de commits git
 
@@ -83,5 +89,4 @@ En `reporting_suite` se implementa facade exponiendo generate_report que coordin
 
 Entonces los **Patrones implementados** dependency injection en constructores facade para coordinar servicios composition para reutilizar logica entre componentes
 
-
-
+## Pregunta C. Bash Builder & Smoke Test
